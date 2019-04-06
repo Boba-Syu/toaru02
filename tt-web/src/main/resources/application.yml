@@ -1,0 +1,14 @@
+server:
+  port: 8080
+spring:
+  thymeleaf:
+    prefix: classpath:/templates/
+    cache: false
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/dbuser?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: hn123456Aa
+    driver-class-name: com.mysql.cj.jdbc.Driver
+mybatis:
+  typeAliasesPackage: com.tqh.demo.model
+

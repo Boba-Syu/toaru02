@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml;http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script type="text/javascript" src="js/register.js"></script>
+	<script type="text/javascript" src="js/login.js"></script>
+	<title>Lowin</title>
+	<link rel="stylesheet" th:href="@{css/auth.css}">
+	<script>
+        function yes2() { // 确定按钮功能设置
+            console.error(1);
+            if ($(id2).val() == "" || $(pwd2).val() == "") {
+                window.alert("输入框内不能为空!");
+            }
+            else { //密码不为空
+                $("#fm").serialize();
+                var user = new Object(); // 打包数据
+                user.name = $.trim($(id2).val());
+                user.pwd = $.trim($(pwd2).val());
+                $.ajax({ //传送数据到"userLogin"界面, 用于对数据库操作
+                    type: 'GET',
+                    url: "userLogin",
+                    contentType: 'application/json',
+                    timeout: 1000,
+                    data: {ObjectUser: JSON.stringify(user)},
+                    dataType: 'text',
+                    success: function (result) { // 若操作成功则跳转到 "magic"界面
+                        if (result == "success") {
+                            window.location.href = "magic";
+                        }
+                        else {
+                            window.alert("登陆失败");
+                        }
+                    },
+                    error: function () {
+                        window.alert("登陆失败!");
+                    }
+                })
+            }
+        }function yes() { // 确定按钮功能设置
+            if ($(id3).val() == "" || $(pwd3).val() == "") {
+                window.alert("输入框内不能为空!");
+            }
+            else {
+                var user = new Object();
+                user.name = $.trim($(id3).val());
+                user.pwd = $.trim($(pwd3).val());
+                $.ajax({
+                    type: 'get',
+                    url: "userRegister",
+                    timeout: 1000,
+                    data: {ObjectUser: JSON.stringify(user)},
+                    dataType: 'text',
+                    success: function (result) {
+                        if (result == "success") {
+                            window.alert("注册成功");
+                            window.location.href = "login";
+                        }
+                        else {
+                            window.alert("注册失败");
+                        }
+                    },
+                    error: function () {
+                        window.alert("注册失败!");
+                    }
+                })
+            }
+        }
+	</script>
+</head>
+
+<body>
+	<div class="lowin">
+		<div class="lowin-brand">
+			<img src="images/kodinger.jpg" alt="logo">
+		</div>
+		<div class="lowin-wrapper">
+			<div class="lowin-box lowin-login">
+				<div class="lowin-box-inner">
+					<form>
+						<p>登 录</p>
+						<div class="lowin-group">
+							<label>用户名 <a href="#" class="login-back-link">Sign in?</a></label>
+							<input type="text" id="id2" class="lowin-input">
+						</div>
+						<div class="lowin-group password-group">
+							<label>密码 <a href="#" class="forgot-link">忘记密码</a></label>
+							<input type="password" id="pwd2" class="lowin-input">
+						</div>
+						<button class="lowin-btn" onclick="yes2()">
+							登陆
+						</button>
+						<div class="text-foot">
+							没有账户? <a href="" class="register-link">点击注册</a>
+						</div>
+					</form>
+				</div>
+			</div>
+
+			<div class="lowin-box lowin-register">
+				<div class="lowin-box-inner">
+					<form>
+						<p>注 册</p>
+						<div class="lowin-group">
+							<label>用户名</label>
+							<input type="text" id="id3" name="name" autocomplete="name" class="lowin-input">
+						</div>
+						<div class="lowin-group">
+							<label>密码</label>
+							<input type="password" id="pwd3" name="password" autocomplete="current-password" class="lowin-input">
+						</div>
+						<button class="lowin-btn" onclick="yes()">注册</button>
+
+						<div class="text-foot">
+							已有账户? <a href="" class="login-link">点击登录</a>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	
+		<footer class="lowin-footer">
+			Design By @itskodinger. More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
+		</footer>
+	</div>
+
+	<script src="js/auth.js"></script>
+	<script>
+		Auth.init({
+			login_url: '#login',
+			forgot_url: '#forgot'
+		});
+	</script>
+</body>
+</html>

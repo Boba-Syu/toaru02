@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml;http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{css/magic.css}">
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="js/magic.js"></script>
+    <meta charset="UTF-8">
+    <title>科学側</title>
+</head>
+<body>
+<div id="center" align="center">
+    <div align="center" id="frosted-glass"></div>
+    <div id="ncenter" align="center">
+        <h1 align="center" class="page-header" style="color: black">とある魔術の禁書目録
+            <small id="uname"><span th:text="${session.userName}"></span></small></h1>
+        <div class="container">
+            <form class="navbar-form navbar-left">
+                <div align="center" class="form-group container">
+                    <input id="id2" type="text" class="form-control" placeholder="Search">
+                    <div class=" btn-group">
+                        <button onclick="del()" type="button" class="btn-primary btn btn-default">删除</button>
+                        <button onclick="insert()" type="button" class="btn-primary btn btn-default">新增</button>
+                        <button onclick="" type="button" class="btn-primary btn btn-default">修改</button>
+                    </div><br>
+                    <div style="margin-top: 20px">
+                        <table id="intable1">
+                            <tbody>
+                            <td><input id="cname" type="text" class="form-control" placeholder="姓名"></td>
+                            <td><input id="csex" type="text" class="form-control" placeholder="性别"></td>
+                            <td><input id="clevel" type="text" class="form-control" placeholder="等级"></td>
+                            </tbody>
+                        </table>
+                        <table id="intable2">
+                            <tbody>
+                            <td><input id="cpower" type="text" class="form-control" placeholder="能力"></td>
+                            <td><input id="cschool" type="text" class="form-control" placeholder="学校"></td>
+                            <td><input id="cgrade" type="text" class="form-control" placeholder="年级"></td>
+                            </tbody>
+                        </table>
+                        <div id="inbutton">
+                            <button onclick="insertYes()" type="button" class="btn-primary btn btn-default">确定</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div id="tbd">
+            <table id="tab" class="table table-hover">
+                <thead>
+                    <th>姓名</th>
+                    <th>性别</th>
+                    <th>等级</th>
+                    <th>能力</th>
+                    <th>学校</th>
+                    <th>年级</th>
+                </thead>
+                <tbody id="tableBody"></tbody>
+            </table>
+        </div>
+        <div class="form-group btn-group">
+            <button onclick="yes()" type="submit" class="btn btn-primary btn-sm btn-default">刷新</button>
+            <button onclick="back()" type="submit" class="btn btn-primary btn-sm btn-default">退出</button>
+            <button onclick="window.location.href='netty'" type="submit" class="btn btn-primary btn-sm btn-default">公布信息</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

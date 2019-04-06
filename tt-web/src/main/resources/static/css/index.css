@@ -1,0 +1,68 @@
+button {
+    text-align: center;
+}
+
+div {
+    text-align: center;
+}
+
+#progress { /* 进度条设置 */
+    animation-duration: 1s;
+    animation-name: an;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    width: 100%;
+}
+
+@keyframes an { /* 进度条的动画效果 */
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+#ncenter, #frosted-glass {
+    width: 30%;
+    margin-left: 35%;
+    margin-top: 200px;
+}
+
+#frosted-glass:after, body {
+    background-image: url("../images/bilibili.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+#frosted-glass {
+    position: absolute;
+}
+
+#frosted-glass:after {
+    margin: -30px;
+    background-position: center top;
+    -webkit-filter: blur(20px);
+    -moz-filter: blur(20px);
+    -ms-filter: blur(20px);
+    -o-filter: blur(20px);
+    filter: blur(20px);
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: -1;
+}
+
+body {
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+#ncenter {
+    position: relative;
+    display: block;
+}
