@@ -14,6 +14,12 @@
 	<name>tt</name>
 	<description>Demo project for Spring Boot</description>
 
+	<modules>
+		<module>tt-admin</module>
+		<module>tt-web</module>
+		<module>tt-netty</module>
+	</modules>
+
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
