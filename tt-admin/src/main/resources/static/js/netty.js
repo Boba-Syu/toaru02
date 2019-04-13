@@ -18,7 +18,7 @@ if (window.WebSocket) {
     };
     socket.onopen = function (event) {
         var ta = document.getElementById('responseText');
-        ta.value = "";//"[" + getdate() + "] [系统]  " + "连接已开启\n";
+        ta.value = ta.value + "";//"[" + getdate() + "] [系统]  " + "连接已开启\n";
     };
     socket.onclose = function (event) {
         var ta = document.getElementById('responseText');

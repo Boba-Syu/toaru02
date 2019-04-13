@@ -1,6 +1,7 @@
 package com.hunau.netty.handler;
 
 import com.hunau.netty.config.BroadcastConfig;
+
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.*;
@@ -10,6 +11,8 @@ import io.netty.handler.codec.http.HttpResponseStatus;
 import io.netty.handler.codec.http.HttpVersion;
 import io.netty.handler.codec.http.websocketx.*;
 import io.netty.util.CharsetUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -21,6 +24,8 @@ import java.util.Date;
 public class BroadcastSoketHandler extends SimpleChannelInboundHandler<Object> {
 
     private WebSocketServerHandshaker handshaker;
+    private static final Logger log = LoggerFactory.getLogger(BroadcastSoketHandler.class);
+
 
     /**
      * 每当从服务端收到新的客户端连接时， 客户端的 Channel 存入ChannelGroup列表中，
@@ -57,6 +62,7 @@ public class BroadcastSoketHandler extends SimpleChannelInboundHandler<Object> {
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
         String date = df.format(new Date());
         //System.out.println(date + "  Client:" + incoming.remoteAddress() + "在线");
+        log.info("Client:" + incoming.remoteAddress() + "在线");
     }
 
     /*
@@ -68,6 +74,7 @@ public class BroadcastSoketHandler extends SimpleChannelInboundHandler<Object> {
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
         String date = df.format(new Date());
         //System.out.println(date + "  Client:" + incoming.remoteAddress() + "掉线");
+        log.info("Client:" + incoming.remoteAddress() + "掉线");
     }
 
     /**
@@ -88,6 +95,7 @@ public class BroadcastSoketHandler extends SimpleChannelInboundHandler<Object> {
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
         String date = df.format(new Date());
         //System.out.println(date + "  Client:" + incoming.remoteAddress() + "异常");
+        log.error("Client:" + incoming.remoteAddress() + "异常");
         cause.printStackTrace();
         ctx.close();
     }
