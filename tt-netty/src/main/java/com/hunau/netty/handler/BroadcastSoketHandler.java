@@ -102,7 +102,7 @@ public class BroadcastSoketHandler extends SimpleChannelInboundHandler<Object> {
 
     /**
      * 服务端处理客户端webSocket请求的核心方法。
-     *
+     * <p>
      * 如果你使用的是 Netty 5.x 版本时，需要把 channelRead0() 重命名为messageReceived()
      */
     @Override

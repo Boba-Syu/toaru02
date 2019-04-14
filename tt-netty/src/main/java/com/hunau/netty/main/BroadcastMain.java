@@ -11,7 +11,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by MI on 2019/3/2.
@@ -34,7 +36,7 @@ public class BroadcastMain {
             SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");//设置日期格式
             String date = df.format(new Date());// new Date()为获取当前系统时间，也可使用当前时间戳
             //System.out.println(date + "  服务端开启等待客户端连接...");
-            log.info("NettyService对象host: "+BroadcastConfig.WEB_SOCKET_URL);
+            log.info("NettyService对象host: " + BroadcastConfig.WEB_SOCKET_URL);
             log.info("服务端开启等待客户端连接...");
             Channel ch = b.bind(BroadcastConfig.port).sync().channel();
             ch.closeFuture().sync();
