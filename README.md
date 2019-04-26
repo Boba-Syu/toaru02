@@ -2,9 +2,9 @@
 
 >将原来的名为[toaru](https://github.com/Boba-Syu/toaru) 的练手小工程改为了这个分模块的形式, 那一个将不再更新, 之后会用这个来进行练手
 
-####环境: JDK:1.8, maven:3.6.0, MySQL:5.6.23
+#### 环境: JDK:1.8, maven:3.6.0, MySQL:5.6.23
 
-####开发工具: IntelliJ IDEA 2017.1 x64
+#### 开发工具: IntelliJ IDEA 2017.1 x64
 
 数据库备份在工程的"toaru\src\main\resources\mysql_backcup"目录中
 
